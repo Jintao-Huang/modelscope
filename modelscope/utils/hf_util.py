@@ -116,15 +116,15 @@ def check_hf_code(model_dir: str, auto_class: type,
 
     trust_remote_code_info = ''
     if not trust_remote_code:
-        trust_remote_code_info = ', You can try setting `trust_remote_code=True`'
+        trust_remote_code_info = ', You can try setting `trust_remote_code=True`.'
     if auto_class is AutoConfigHF:
         if model_type not in CONFIG_MAPPING:
-            raise ValueError(f'{model_type} not found in HF CONFIG_MAPPING'
+            raise ValueError(f'{model_type} not found in HF `CONFIG_MAPPING`'
                              + trust_remote_code_info)
     elif auto_class is AutoTokenizerHF:
         if model_type not in TOKENIZER_MAPPING_NAMES:
             raise ValueError(
-                f'{model_type} not found in HF TOKENIZER_MAPPING_NAMES'
+                f'{model_type} not found in HF `TOKENIZER_MAPPING_NAMES`'
                 + trust_remote_code_info)
     else:
         mapping_names = [
@@ -132,7 +132,7 @@ def check_hf_code(model_dir: str, auto_class: type,
         ]
         if model_type not in mapping_names:
             raise ValueError(
-                f'{model_type} not found in HF auto_class._model_mapping'
+                f'{model_type} not found in HF `auto_class._model_mapping`'
                 + trust_remote_code_info)
 
 
